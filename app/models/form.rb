@@ -8,7 +8,7 @@ class Form < ApplicationRecord
   private
 
   def generate_url
-    x = ENV['ROOT_URL'] + ':3000' + '/' + 'forms/' + self.id.to_s + '/' + 'submissions/new'
+    x = ENV['ROOT_URL'] + '/' + 'forms/' + self.id.to_s + '/' + 'submissions/new'
     self.url = x
     self.update_column(:url, x)
   end
