@@ -1,0 +1,22 @@
+<h1>New Submission</h1>
+
+<%= form_for [@form, @submission] do |f| %>
+  <%= f.fields_for :answers do |ff|  %>
+    <% @qst.each do |a| %>
+      <%= ff.hidden_field :question_id, value: a.id %>
+      <%= a.question_text %>
+      
+      <%= ff.text_field :answer_text %>
+      </br>
+    <% end %>
+  <% end %>    
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
+
+
+
+<%= link_to 'Back', form_submissions_path %>
+
