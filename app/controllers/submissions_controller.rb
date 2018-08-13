@@ -20,9 +20,10 @@ class SubmissionsController < ApplicationController
 
     @qst = @form.questions.all
    
-    @qst.each do |zxc|
-      @submission.answers.build
-    end
+    
+    @submission.answers.build
+    
+    
     
 
   end
