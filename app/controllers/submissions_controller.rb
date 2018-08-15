@@ -40,7 +40,12 @@ class SubmissionsController < ApplicationController
     @submission.form_id = params[:form_id]        
     @submission.save!
 
+    render :thanks
+
     
+  end
+
+  def thanks
   end
 
   # PATCH/PUT /submissions/1
