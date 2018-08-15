@@ -1,9 +1,12 @@
 Rails.application.routes.draw do
   
+  root 'forms#index'
+  
   post '/sms' => "forms#sms", :as => :sms
-  
+
+  root 'pages#show'
+
   resources :answers
-  
   resources :forms do
     resources :questions
     resources :submissions
