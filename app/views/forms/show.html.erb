@@ -24,3 +24,15 @@ Enter mobile number to send feedback form:
   <%= form.hidden_field :url, value: @form.url %>
   <%= form.submit "Send SMS"  %>
 <% end  %>
+
+</br>
+</br>
+Upload CSV for bulk sharing
+
+<%= form_tag import_forms_path, multipart:true do %>
+  <%= hidden_field_tag "url", @form.url %>
+  <%= file_field_tag :file %>
+  <%= submit_tag "Upload" %>
+<% end %>
+
+

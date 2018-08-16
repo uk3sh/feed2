@@ -8,6 +8,7 @@ Rails.application.routes.draw do
 
   resources :answers
   resources :forms do
+    collection {post :import}
     resources :questions
     resources :submissions
   end
