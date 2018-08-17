@@ -1,0 +1,7 @@
+
+<% @ans.each do |an| %>
+  <%= Question.find(an.question_id).question_text %>
+  <br>
+  <%= an.answer_text %>
+  <br>
+<% end %>

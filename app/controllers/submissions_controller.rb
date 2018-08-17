@@ -1,6 +1,6 @@
 class SubmissionsController < ApplicationController
   before_action :set_submission, only: [:show, :edit, :update, :destroy]
-  before_action :set_form, only: [:create]
+  before_action :set_form, only: [:create, :show, :index]
 
   # GET /submissions
   # GET /submissions.json
@@ -11,6 +11,7 @@ class SubmissionsController < ApplicationController
   # GET /submissions/1
   # GET /submissions/1.json
   def show
+    @ans = @submission.answers
   end
 
   # GET /submissions/new
@@ -19,13 +20,9 @@ class SubmissionsController < ApplicationController
     @submission = @form.submissions.new
 
     @qst = @form.questions.all
-   
-    
+  
     @submission.answers.build
-    
-    
-    
-
+  
   end
 
   # GET /submissions/1/edit
@@ -84,6 +81,6 @@ class SubmissionsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def submission_params
-      params.require(:submission).permit(answers_attributes: [:answer_text, :question_id, :contact])
+      params.require(:submission).permit(:contact, answers_attributes: [:answer_text, :question_id])
     end
 end
