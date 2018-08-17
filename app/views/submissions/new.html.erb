@@ -5,6 +5,7 @@
     <% @qst.each do |a| %>
       <%= f.fields_for :answers do |ff|  %>
         <%= ff.hidden_field :question_id, value: a.id %>
+        <%= ff.hidden_field :contact, value: params[:contact] %>
         <%= a.question_text %>
         
         <%= ff.text_field :answer_text %>
