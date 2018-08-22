@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   
   post '/sms' => "forms#sms", :as => :sms
 
-  root 'pages#show'
+  
 
   resources :answers
   resources :forms do

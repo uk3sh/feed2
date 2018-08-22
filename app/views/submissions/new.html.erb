@@ -6,9 +6,15 @@
       <%= f.fields_for :answers do |ff|  %>
         <%= ff.hidden_field :question_id, value: a.id %>        
         <%= a.question_text %>
-        
-        <%= ff.text_field :answer_text %>
         </br>
+        <%= ff.radio_button :answer_text, 'good' %>
+        <%= ff.label :answer_text, 'Good' %>
+        <%= image_tag "smi1.png" ,:height=>'25px',:width=>'25px' %>
+
+        <%= ff.radio_button :answer_text, 'bad' %>
+        <%= ff.label :answer_text, 'Bad' %>
+        </br>
+        
     <% end %>
   <% end %>    
 
