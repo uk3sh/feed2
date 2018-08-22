@@ -1,0 +1,38 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @form.name %>
+</p>
+
+<p>
+  <strong>Url:</strong>
+  <%= @form.url %>
+</p>
+
+<%= link_to "Show Questions", form_questions_path(@form) %>
+
+<%= link_to 'Edit', edit_form_path(@form) %> |
+<%= link_to 'Back', forms_path %>
+
+</br>
+</br>
+Enter mobile number to send feedback form:
+
+<%= form_for :anything, url: "/sms" do |form| %>
+  <%= form.text_field :number %>
+  <%= form.hidden_field :url, value: @form.url %>
+  <%= form.submit "Send SMS"  %>
+<% end  %>
+
+</br>
+</br>
+Upload CSV for bulk sharing
+
+<%= form_tag import_forms_path, multipart:true do %>
+  <%= hidden_field_tag "url", @form.url %>
+  <%= file_field_tag :file %>
+  <%= submit_tag "Upload" %>
+<% end %>
+
+

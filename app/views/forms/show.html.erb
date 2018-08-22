@@ -10,19 +10,21 @@
   <%= @form.url %>
 </p>
 
-<%= link_to "Show Questions", form_questions_path(@form) %>
-
-<%= link_to 'Edit', edit_form_path(@form) %> |
-<%= link_to 'Back', forms_path %>
+<%= link_to "Show Questions", form_questions_path(@form), class: "btn btn-primary" %> 
+<%= link_to 'Edit', edit_form_path(@form), class: "btn btn-primary" %> 
+<%= link_to 'Back', forms_path, class: "btn btn-primary" %>
 
 </br>
 </br>
 Enter mobile number to send feedback form:
 
 <%= form_for :anything, url: "/sms" do |form| %>
-  <%= form.text_field :number %>
-  <%= form.hidden_field :url, value: @form.url %>
-  <%= form.submit "Send SMS"  %>
+  <div class="form-group">
+    <%= form.text_field :number, class: 'col-md-6 form-control' %>
+    <%= form.hidden_field :url, value: @form.url %>
+    </br>
+    <%= form.submit "Send SMS", class: "btn btn-primary"  %>
+  </div>
 <% end  %>
 
 </br>
@@ -30,9 +32,12 @@ Enter mobile number to send feedback form:
 Upload CSV for bulk sharing
 
 <%= form_tag import_forms_path, multipart:true do %>
-  <%= hidden_field_tag "url", @form.url %>
-  <%= file_field_tag :file %>
-  <%= submit_tag "Upload" %>
+  <div class="form-group">
+    <%= hidden_field_tag "url", @form.url %>
+    <%= file_field_tag :file, class: 'col-md-6 form-control' %>
+    </br>
+    <%= submit_tag "Upload", class: "btn btn-primary" %>
+  </div>
 <% end %>
 
 
