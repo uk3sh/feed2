@@ -22,6 +22,8 @@ class SubmissionsController < ApplicationController
     @qst = @form.questions.all
   
     @submission.answers.build
+
+    render layout: "testlayout"
   
   end
 
@@ -37,12 +39,13 @@ class SubmissionsController < ApplicationController
     @submission.form_id = params[:form_id]        
     @submission.save!
 
-    render :thanks
+    redirect_to :thanks
 
     
   end
 
   def thanks
+    render layout: "testlayout"
   end
 
   # PATCH/PUT /submissions/1

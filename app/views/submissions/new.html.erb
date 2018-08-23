@@ -1,29 +1,55 @@
-<h1>New Submission</h1>
 
-<%= form_for [@form, @submission] do |f| %>
-  <%= f.hidden_field :contact, value: params[:contact] %>
-    <% @qst.each do |a| %>
-      <%= f.fields_for :answers do |ff|  %>
-        <%= ff.hidden_field :question_id, value: a.id %>        
-        <%= a.question_text %>
-        </br>
-        <%= ff.radio_button :answer_text, 'good' %>
-        <%= ff.label :answer_text, 'Good' %>
-        <%= image_tag "smi1.png" ,:height=>'25px',:width=>'25px' %>
 
-        <%= ff.radio_button :answer_text, 'bad' %>
-        <%= ff.label :answer_text, 'Bad' %>
-        </br>
+<div class="container">
+  <div class="row justify-content-center" >
+    <div class="col-lg-8 mb-4 col-xs-12">
+      <div class="card border-primary rounded-0">
         
-    <% end %>
-  <% end %>    
+        <div class="card-header p-0">
+          <div class="bg-primary text-white text-center py-2">
+            <h3>Fill the form:</h3>
+            <p class="m-0">We value your feeback.</p>
+          </div>
+        </div>
 
-  <div class="actions">
-    <%= f.submit %>
+        <div class="card-body p-3">
+
+          <%= form_for [@form, @submission] do |f| %>
+            <%= f.hidden_field :contact, value: params[:contact] %>
+              <% @qst.each do |a| %>
+                <%= f.fields_for :answers do |ff|  %>
+
+                  <div class="form-group">
+                    <%= ff.hidden_field :question_id, value: a.id %>
+                    <%= a.question_text %>
+                  </div>
+                  
+
+                  <div class="form-group">
+                    <%= ff.radio_button :answer_text, 'good'  %>
+                    <%= ff.label :answer_text, 'Good' %>
+                    <%= image_tag "happy.png" ,:height=>'25px',:width=>'25px' %>
+                  </div>
+
+                  <div class="form-group">
+                    <%= ff.radio_button :answer_text, 'bad' %>
+                    <%= ff.label :answer_text, 'Bad' %>
+                    <%= image_tag "sad.png" ,:height=>'25px',:width=>'25px' %>
+                  </div>
+                  
+              <% end %>
+            <% end %>    
+
+            <div class="form-group">
+              <%= f.submit "Submit", class: 'btn btn-primary' %>
+            </div>
+          <% end %>
+      </div>
+    </div>
   </div>
-<% end %>
+</div>
 
 
 
-<%= link_to 'Back', form_submissions_path %>
+
 

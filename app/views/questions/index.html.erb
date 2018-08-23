@@ -1,27 +1,30 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Questions</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Question text</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+<div class="container col-lg-8">
+  <h1>Questions</h1>
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th>Question text</th>
+          <th colspan="2"></th>
+        </tr>
+      </thead>
 
-  <tbody>
-    <% @questions.each do |question| %>
-      <tr>
-        <td><%= question.question_text %></td>
-        
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+      <tbody>
+        <% @questions.each do |question| %>
+          <tr>
+            <td><%= question.question_text %></td>        
+            <td><%= link_to 'Edit', edit_form_question_path(@form, question), class: "btn btn-primary" %></td>
+            <td><%= link_to 'Destroy', form_question_path(@form, question) , method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-primary" %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
 
-<br>
+    <br>
 
-<%= link_to 'New Question', new_form_question_path, class: "btn btn-primary" %>
-<%= link_to 'Back', @form, class: "btn btn-primary" %>
+    <%= link_to 'New Question', new_form_question_path, class: "btn btn-primary" %>
+    <%= link_to 'Back', @form, class: "btn btn-primary" %>
+</div>
 
