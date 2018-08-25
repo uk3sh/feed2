@@ -1,6 +1,6 @@
-<div class="container">
-  <div class="row justify-content-center" >
-    <div class="col">
+<div class="container h-100">
+  <div class="row h-100 justify-content-center align-items-center" >
+    <div class="col my-auto">
       <div class="card border-primary rounded-0">
         
         <div class="card-header p-0">
@@ -10,7 +10,7 @@
           </div>
         </div>
 
-        <div class="card-body p-3 col-xs-12">
+        <div class="card-body p-3 col text-center">
 
           <%= form_for [@form, @submission] do |f| %>
             <%= f.hidden_field :contact, value: params[:contact] %>
@@ -23,17 +23,19 @@
                   </div>
                   
 
-                  <div class="form-check ">
+                  <div class="form-check">
                     <%= ff.radio_button :answer_text, 'good', class: 'form-check-input' %>
                     <%= ff.label :answer_text, 'Good' , class: 'form-check-label' %>
                     <%= image_tag "happy.png" ,:height=>'23px',:width=>'23px' %>
                   </div>
+      
 
                   <div class="form-check">
                     <%= ff.radio_button :answer_text, 'bad', class: 'form-check-input' %>
                     <%= ff.label :answer_text, 'Bad', class: 'form-check-label'  %>
                     <%= image_tag "sad.png" ,:height=>'23px',:width=>'23px' %>
                   </div>
+                  
                   
               <% end %>
             <% end %>    

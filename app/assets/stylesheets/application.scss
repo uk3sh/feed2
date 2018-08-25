@@ -17,7 +17,13 @@
  @import "bootstrap";
 
 
+
+ html, body {
+  height: 100%
+}
+
+
  .question-css{
    font-size: 20px;
-   font-style: italic
+   font-style: italic;
  }
