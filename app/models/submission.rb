@@ -6,4 +6,8 @@ class Submission < ApplicationRecord
 
   accepts_nested_attributes_for :answers
   
+  scope :most_recent, -> (limit) { order("created_at desc").limit(limit) }
+  
+  scope :today, lambda { where('DATE(created_at) = ?', Date.today)}
+
 end
