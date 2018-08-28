@@ -76,7 +76,7 @@ class FormsController < ApplicationController
     puts ph
     puts qwerty
 
-    Net::HTTP.get(URI.parse("https://control.msg91.com/api/sendhttp.php?authkey=153352AdRjnfzD8x4N5922d370&mobiles=91#{ph}&message=Hello! Please leave feedback here #{qwerty}?contact=#{ph}&sender=UKESHV&route=4&country=91"))
+    Net::HTTP.get(URI.parse("https://control.msg91.com/api/sendhttp.php?&mobiles=91#{ph}&message=Hello! Please leave feedback here #{qwerty}?contact=#{ph}&sender=UKESHV&route=4&country=91"))
     redirect_to forms_path
   end
 
@@ -88,7 +88,7 @@ class FormsController < ApplicationController
       qwerty = params[:url]
       puts ph
       puts qwerty
-      Net::HTTP.get(URI.parse("https://control.msg91.com/api/sendhttp.php?authkey=153352AdRjnfzD8x4N5922d370&mobiles=91#{ph}&message=Hello! Please leave feedback here #{qwerty}?contact=#{ph}&sender=UKESHV&route=4&country=91"))
+      Net::HTTP.get(URI.parse("https://control.msg91.com/api/sendhttp.php?&mobiles=91#{ph}&message=Hello! Please leave feedback here #{qwerty}?contact=#{ph}&sender=UKESHV&route=4&country=91"))
     end
   end
   
