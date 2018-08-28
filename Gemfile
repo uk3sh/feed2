@@ -37,6 +37,8 @@ gem 'jbuilder', '~> 2.5'
 
 gem 'hirb'
 gem 'bootstrap', '~> 4.1.3'
+gem 'devise', '~> 4.2'
+gem 'apartment'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -51,7 +53,7 @@ group :development do
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
 
-  gem 'sqlite3'
+  gem 'pg'
 
 end
 
