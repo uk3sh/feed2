@@ -2,6 +2,7 @@ class FormsController < ApplicationController
 
   require 'net/http'
   require 'net/https'
+  require 'rqrcode'
 
   before_action :authenticate_user!
   before_action :set_form, only: [:show, :edit, :update, :destroy]
@@ -76,7 +77,7 @@ class FormsController < ApplicationController
     puts ph
     puts qwerty
 
-    Net::HTTP.get(URI.parse("https://control.msg91.com/api/sendhttp.php?&mobiles=91#{ph}&message=Hello! Please leave feedback here #{qwerty}?contact=#{ph}&sender=UKESHV&route=4&country=91"))
+    Net::HTTP.get(URI.parse("https://control.msg91.com/api/sendhttp.php?authkey=153352AdRjnfzD8x4N5922d370&mobiles=91#{ph}&message=Hello! Please leave feedback here #{qwerty}?contact=#{ph}&sender=UKESHV&route=4&country=91"))
     redirect_to forms_path
   end
 
@@ -88,8 +89,15 @@ class FormsController < ApplicationController
       qwerty = params[:url]
       puts ph
       puts qwerty
-      Net::HTTP.get(URI.parse("https://control.msg91.com/api/sendhttp.php?&mobiles=91#{ph}&message=Hello! Please leave feedback here #{qwerty}?contact=#{ph}&sender=UKESHV&route=4&country=91"))
+      Net::HTTP.get(URI.parse("https://control.msg91.com/api/sendhttp.php?authkey=153352AdRjnfzD8x4N5922d370&mobiles=91#{ph}&message=Hello! Please leave feedback here #{qwerty}?contact=#{ph}&sender=UKESHV&route=4&country=91"))
     end
+  end
+
+  def generate_qr
+    qr_url = params[:url]    
+    qr = RQRCode::QRCode.new(qr_url)
+    image = qr.as_png(size: 750)
+    send_data image, filename: "feedback.png", type: "image/png"
   end
   
 
