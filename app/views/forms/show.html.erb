@@ -10,6 +10,16 @@
   <%= @form.url %>
 </p>
 
+<p>
+  <strong>Sender ID:</strong>
+  <%= @form.sender_ID %>
+</p>
+
+<p>
+  <strong>Message:</strong>
+  <%= @form.message %>
+</p>
+
 <%= link_to "Show Questions", form_questions_path(@form), class: "btn btn-primary" %> 
 <%= link_to 'Edit', edit_form_path(@form), class: "btn btn-primary" %> 
 <%= link_to 'Back', forms_path, class: "btn btn-primary" %>
@@ -22,6 +32,8 @@ Enter mobile number to send feedback form:
   <div class="form-group">
     <%= form.text_field :number, class: 'col-md-6 form-control' %>
     <%= form.hidden_field :url, value: @form.url %>
+    <%= form.hidden_field :sender_ID, value: @form.sender_ID %>
+    <%= form.hidden_field :message, value: @form.message %>
     </br>
     <%= form.submit "Send SMS", class: "btn btn-primary"  %>
   </div>
