@@ -1,1 +1,31 @@
 Hello Customer!
+<br>
+<div class="row">
+  <div class="col-sm-4">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title text-center">Today's feedbacks</h5>
+        <p class="card-text text-center"><%= @today.count %></p>
+        
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-4">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title text-center">No of Good's</h5>
+        <p class="card-text text-center"><%= @good_counts %></p>
+        
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-4">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title text-center">No of Bad's</h5>
+        <p class="card-text text-center"><%= @bad_counts %></p>
+        
+      </div>
+    </div>
+  </div>
+</div>

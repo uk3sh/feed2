@@ -1,0 +1,43 @@
+<?xml version="1.0"?><svg width="147.08931" height="147.08931" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+ <title>Yellow Neutral Face</title>
+ <metadata id="metadata7">image/svg+xml</metadata>
+ <defs>
+  <linearGradient id="linearGradient2349">
+   <stop offset="0" id="stop2351" stop-color="#dad5d5"/>
+   <stop offset="1" id="stop2353" stop-color="#000000"/>
+  </linearGradient>
+  <linearGradient id="linearGradient2341">
+   <stop offset="0" id="stop2343" stop-color="#cac5c5"/>
+   <stop offset="1" id="stop2345" stop-color="#000000"/>
+  </linearGradient>
+  <linearGradient xlink:href="#linearGradient2349" id="linearGradient2355" x1="216.3344" y1="62.632298" x2="255.76309" y2="74.844719" gradientUnits="userSpaceOnUse"/>
+  <linearGradient xlink:href="#linearGradient2349" id="linearGradient2359" gradientUnits="userSpaceOnUse" x1="216.3344" y1="62.632298" x2="255.76309" y2="74.844719" gradientTransform="translate(0,60)"/>
+  <linearGradient xlink:href="#linearGradient2349" id="linearGradient2363" gradientUnits="userSpaceOnUse" gradientTransform="translate(0,120)" x1="216.3344" y1="62.632298" x2="255.76309" y2="74.844719"/>
+  <linearGradient xlink:href="#linearGradient2349" id="linearGradient2383" gradientUnits="userSpaceOnUse" x1="216.3344" y1="62.632298" x2="255.76309" y2="74.844719" gradientTransform="translate(180,0)"/>
+  <linearGradient xlink:href="#linearGradient2349" id="linearGradient2385" gradientUnits="userSpaceOnUse" gradientTransform="translate(180,60)" x1="216.3344" y1="62.632298" x2="255.76309" y2="74.844719"/>
+  <linearGradient xlink:href="#linearGradient2349" id="linearGradient2387" gradientUnits="userSpaceOnUse" gradientTransform="translate(180,120)" x1="216.3344" y1="62.632298" x2="255.76309" y2="74.844719"/>
+  <clipPath clipPathUnits="userSpaceOnUse" id="clipPath2440">
+   <path d="m114.666107,142.226669c0,12.529846 -9.303925,22.69899 -20.767708,22.69899c-11.463776,0 -20.767723,-10.169144 -20.767723,-22.69899c0,-12.529846 9.303947,-22.698997 20.767723,-22.698997c11.463783,0 20.767708,10.169151 20.767708,22.698997z" id="path2442" stroke-dashoffset="0" stroke-miterlimit="4" marker-end="none" marker-mid="none" marker-start="none" stroke-linejoin="round" stroke-linecap="round" stroke-width="4" fill-rule="nonzero" fill="#ffcc00"/>
+  </clipPath>
+  <clipPath clipPathUnits="userSpaceOnUse" id="clipPath2504">
+   <path id="path2506" d="m115.666847,150.100067a20.76771,22.698999 0 1 1 -41.535431,0a20.76771,22.698999 0 1 1 41.535431,0z" stroke-dashoffset="0" stroke-miterlimit="4" marker-end="none" marker-mid="none" marker-start="none" stroke-linejoin="round" stroke-linecap="round" stroke-width="4" fill-rule="nonzero" fill="#808080" opacity="0.71"/>
+  </clipPath>
+  <linearGradient xlink:href="#linearGradient2349" id="linearGradient2553" gradientUnits="userSpaceOnUse" x1="216.3344" y1="62.632298" x2="255.76309" y2="74.844719" gradientTransform="translate(0,120)"/>
+  <linearGradient xlink:href="#linearGradient2349" id="linearGradient3583" gradientUnits="userSpaceOnUse" gradientTransform="translate(180,0)" x1="216.3344" y1="62.632298" x2="255.76309" y2="74.844719"/>
+  <linearGradient xlink:href="#linearGradient2349" id="linearGradient3585" gradientUnits="userSpaceOnUse" gradientTransform="translate(180,60)" x1="216.3344" y1="62.632298" x2="255.76309" y2="74.844719"/>
+  <linearGradient xlink:href="#linearGradient2349" id="linearGradient3587" gradientUnits="userSpaceOnUse" gradientTransform="translate(180,120)" x1="216.3344" y1="62.632298" x2="255.76309" y2="74.844719"/>
+  <linearGradient xlink:href="#linearGradient2349" id="linearGradient3589" gradientUnits="userSpaceOnUse" x1="216.3344" y1="62.632298" x2="255.76309" y2="74.844719"/>
+  <linearGradient xlink:href="#linearGradient2349" id="linearGradient3591" gradientUnits="userSpaceOnUse" gradientTransform="translate(0,60)" x1="216.3344" y1="62.632298" x2="255.76309" y2="74.844719"/>
+  <linearGradient xlink:href="#linearGradient2349" id="linearGradient3593" gradientUnits="userSpaceOnUse" gradientTransform="translate(0,120)" x1="216.3344" y1="62.632298" x2="255.76309" y2="74.844719"/>
+  <linearGradient xlink:href="#linearGradient2349" id="linearGradient3595" gradientUnits="userSpaceOnUse" gradientTransform="translate(0,120)" x1="216.3344" y1="62.632298" x2="255.76309" y2="74.844719"/>
+ </defs>
+ <g>
+  <title>Layer 1</title>
+  <g externalResourcesRequired="false" id="g3534">
+   <path d="m146.58931,73.544647a72.044647,72.044647 0 1 1 -144.08931,0a72.044647,72.044647 0 1 1 144.08931,0z" id="path2294" stroke-dashoffset="0" stroke-miterlimit="4" marker-end="none" marker-mid="none" marker-start="none" stroke-linejoin="round" stroke-linecap="round" stroke-width="3" stroke="#000000" fill-rule="nonzero" fill="#ffff56"/>
+   <path id="path2296" d="m29.553961,92.347c36.530207,-3.134644 51.696512,-0.122864 85.994486,-2" stroke-width="4.745511" stroke="#000000" fill-rule="evenodd" fill="none"/>
+   <path d="m52.832581,47.884918a5.92148,5.92148 0 1 1 -11.84296,0a5.92148,5.92148 0 1 1 11.84296,0z" id="path2298" stroke-dashoffset="0" stroke-miterlimit="4" marker-end="none" marker-mid="none" marker-start="none" stroke-linejoin="round" stroke-linecap="round" stroke-width="3" stroke="#000000" fill-rule="nonzero" fill="#000000"/>
+   <path id="path2300" d="m102.832581,47.884918a5.92148,5.92148 0 1 1 -11.842964,0a5.92148,5.92148 0 1 1 11.842964,0z" stroke-dashoffset="0" stroke-miterlimit="4" marker-end="none" marker-mid="none" marker-start="none" stroke-linejoin="round" stroke-linecap="round" stroke-width="3" stroke="#000000" fill-rule="nonzero" fill="#000000"/>
+  </g>
+ </g>
+</svg>

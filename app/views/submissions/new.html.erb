@@ -24,16 +24,22 @@
                   
 
                   <div class="form-check">
-                    <%= ff.radio_button :answer_text, 'good', class: 'form-check-input' %>
+                    <%= ff.radio_button :answer_text, 'Good', class: 'form-check-input' %>
                     <%= ff.label :answer_text, 'Good' , class: 'form-check-label' %>
-                    <%= image_tag "happy.png" ,:height=>'23px',:width=>'23px' %>
+                    <%= image_tag "happy.png" ,:height=>'25px',:width=>'25px' %>
+                  </div>
+
+                  <div class="form-check">
+                    <%= ff.radio_button :answer_text, 'Neutral', class: 'form-check-input' %>
+                    <%= ff.label :answer_text, 'Neutral', class: 'form-check-label'  %>
+                    <%= image_tag "neutral.svg" ,:height=>'25px',:width=>'25px' %>
                   </div>
       
 
                   <div class="form-check">
-                    <%= ff.radio_button :answer_text, 'bad', class: 'form-check-input' %>
+                    <%= ff.radio_button :answer_text, 'Bad', class: 'form-check-input' %>
                     <%= ff.label :answer_text, 'Bad', class: 'form-check-label'  %>
-                    <%= image_tag "sad.png" ,:height=>'23px',:width=>'23px' %>
+                    <%= image_tag "sad.svg" ,:height=>'25px',:width=>'25px' %>
                   </div>
 
                                
