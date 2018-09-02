@@ -4,7 +4,7 @@ class FormsController < ApplicationController
   require 'net/https'
   require 'rqrcode'
 
-  before_action :authenticate_user!
+  
   before_action :set_form, only: [:show, :edit, :update, :destroy]
 
   # GET /forms
