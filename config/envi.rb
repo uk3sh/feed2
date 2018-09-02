@@ -1,1 +1,1 @@
-ENV['ROOT_URL'] = 'https://sleepy-bastion-52433.herokuapp.com'
+ENV['ROOT_URL'] = 'http://feedyfy.com'

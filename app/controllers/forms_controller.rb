@@ -24,7 +24,7 @@ class FormsController < ApplicationController
 
   # GET /forms/new
   def new
-    @form = Form.new
+    @form = Form.new    
   end
 
   # GET /forms/1/edit
@@ -45,6 +45,10 @@ class FormsController < ApplicationController
         format.json { render json: @form.errors, status: :unprocessable_entity }
       end
     end
+    
+    @form.generate_url(request.subdomain, request.domain)
+    @form.save
+    
   end
 
   # PATCH/PUT /forms/1
