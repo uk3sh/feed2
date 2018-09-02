@@ -1,5 +1,4 @@
 <p id="notice"><%= notice %></p>
-<%= link_to 'Logout', destroy_user_session_path, method: :delete %>
 
 <div class="container">
   <div class="row">
@@ -10,7 +9,7 @@
         <thead>
           <tr>
             <th>Name</th>
-            <th>Url</th>
+            <th>Message</th>
             <th colspan="4"></th>
           </tr>
         </thead>
@@ -19,7 +18,7 @@
           <% @forms.each do |form| %>
             <tr>
               <td><%= form.name %></td>
-              <td><%= form.url %></td>
+              <td><%= form.message %></td>
               <td><%= link_to 'Show', form, class: "btn btn-primary" %></td>
               <td><%= link_to 'Edit', edit_form_path(form), class: "btn btn-primary" %></td>
               <td><%= link_to 'Destroy', form, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-primary" %></td>
@@ -35,45 +34,4 @@
     </div>
   </div>
 </div>
-
-
-<br>
-Today's feedbacks
-<%= @today.count %>
-<br>
-No of Good: <%= @good_counts %>
-<br>
-No of Bad: <%= @bad_counts %>
-<br>
-<br>
-<div class="row">
-  <div class="col-sm-4">
-    <div class="card">
-      <div class="card-body">
-        <h5 class="card-title text-center">Today's feedbacks</h5>
-        <p class="card-text text-center"><%= @today.count %></p>
-        
-      </div>
-    </div>
-  </div>
-  <div class="col-sm-4">
-    <div class="card">
-      <div class="card-body">
-        <h5 class="card-title text-center">No of Good's</h5>
-        <p class="card-text text-center"><%= @good_counts %></p>
-        
-      </div>
-    </div>
-  </div>
-  <div class="col-sm-4">
-    <div class="card">
-      <div class="card-body">
-        <h5 class="card-title text-center">No of Bad's</h5>
-        <p class="card-text text-center"><%= @bad_counts %></p>
-        
-      </div>
-    </div>
-  </div>
-</div>
-
 

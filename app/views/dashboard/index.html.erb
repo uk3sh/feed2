@@ -1,19 +1,26 @@
-Hello Customer!
+Hello <%= current_user.email %>
+<%= link_to 'Create New Form', new_form_path, class: "btn btn-primary float-right" %>
+<br>
+<br>
+<br>
+<div class="row h-100 justify-content-center align-items-center">
+  <div class="col-sm-4">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title text-center">Today's Feedbacks</h5>
+        <p class="card-text text-center"><%= @today.count %></p>        
+      </div>
+    </div>
+  </div>
+</div>
+<br>
+<br>
 <br>
 <div class="row">
   <div class="col-sm-4">
     <div class="card">
       <div class="card-body">
-        <h5 class="card-title text-center">Today's feedbacks</h5>
-        <p class="card-text text-center"><%= @today.count %></p>
-        
-      </div>
-    </div>
-  </div>
-  <div class="col-sm-4">
-    <div class="card">
-      <div class="card-body">
-        <h5 class="card-title text-center">No of Good's</h5>
+        <h5 class="card-title text-center">Good Feedbacks</h5>
         <p class="card-text text-center"><%= @good_counts %></p>
         
       </div>
@@ -22,10 +29,20 @@ Hello Customer!
   <div class="col-sm-4">
     <div class="card">
       <div class="card-body">
-        <h5 class="card-title text-center">No of Bad's</h5>
+        <h5 class="card-title text-center">Neutral Feedbacks</h5>
+        <p class="card-text text-center"><%= @bad_counts %></p>
+        
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-4">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title text-center">Bad Feedbacks</h5>
         <p class="card-text text-center"><%= @bad_counts %></p>
         
       </div>
     </div>
   </div>
 </div>
+
