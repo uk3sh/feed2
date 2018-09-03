@@ -115,9 +115,6 @@ class FormsController < ApplicationController
       @form = Form.find(params[:id])
     end
 
-    
-    
-
     # Never trust parameters from the scary internet, only allow the white list through.
     def form_params
       params.require(:form).permit(:name, :sender_ID, :message, :url)

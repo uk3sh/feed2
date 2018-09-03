@@ -4,8 +4,9 @@ class DashboardController < ApplicationController
 
   def index
     @today = Submission.today
-    @good_counts = Answer.group(:answer_text).count["good"]
-    @bad_counts = Answer.group(:answer_text).count["bad"]
+    @good_counts = Answer.group(:answer_text).count["Good"]
+    @bad_counts = Answer.group(:answer_text).count["Bad"]
+    @neutral_counts = Answer.group(:answer_text).count["Neutral"]
   end
   
 end
