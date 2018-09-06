@@ -10,7 +10,7 @@
           </div>
         </div>
 
-        <div class="card-body p-3 col text-center">
+        <div class="card-body p-3 col ">
 
           <%= form_for [@form, @submission] do |f| %>
             <%= f.hidden_field :contact, value: params[:contact] %>
@@ -22,29 +22,21 @@
                     <%= a.question_text %>
                   </div>
                   
-
-                  <div class="form-check">
-                    <%= ff.radio_button :answer_text, 'Good', class: 'form-check-input' %>
-                    <%= ff.label :answer_text, 'Good' , class: 'form-check-label' %>
-                    <%= image_tag "happy.png" ,:height=>'25px',:width=>'25px' %>
-                  </div>
-
-                  <div class="form-check">
-                    <%= ff.radio_button :answer_text, 'Neutral', class: 'form-check-input' %>
-                    <%= ff.label :answer_text, 'Neutral', class: 'form-check-label'  %>
-                    <%= image_tag "neutral.svg" ,:height=>'25px',:width=>'25px' %>
-                  </div>
-      
-
-                  <div class="form-check">
-                    <%= ff.radio_button :answer_text, 'Bad', class: 'form-check-input' %>
-                    <%= ff.label :answer_text, 'Bad', class: 'form-check-label'  %>
-                    <%= image_tag "sad.svg" ,:height=>'25px',:width=>'25px' %>
-                  </div>
-
-                               
-                  
-                  
+                  <ul class="donate-now">
+                    <li>
+                      <%= ff.radio_button :answer_text, 'Good', class: 'form-check-input' %>
+                      <%= ff.label :answer_text, 'Good' , class: 'form-check-label',  value:  "Good"  %>
+                    </li>
+                    <li>
+                      <%= ff.radio_button :answer_text, 'Neutral', class: 'form-check-input' %>
+                      <%= ff.label :answer_text, 'Neutral' , class: 'form-check-label',  value:  "Neutral" %>
+                    </li>
+                    <li>
+                      <%= ff.radio_button :answer_text, 'Bad', class: 'form-check-input' %>
+                      <%= ff.label :answer_text, 'Bad' , class: 'form-check-label',  value:  "Bad" %>
+                    </li>
+                  </ul>
+ 
               <% end %>
             <% end %>    
             <br>
@@ -54,7 +46,7 @@
           <% end %>
       </div>
     </div>
-  </div>
+  </div>  
 </div>
 
 
