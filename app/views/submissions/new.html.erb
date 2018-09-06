@@ -1,56 +1,51 @@
-<div class="container h-100">
-  <div class="row h-100 justify-content-center align-items-center" >
-    <div class="col col-lg-6 my-auto">
-      <div class="card border-primary rounded-0">
-        
-        <div class="card-header p-0">
-          <div class="bg-primary text-white text-center py-2">
-            <h3>Fill the form</h3>
-            <p class="m-0">We value your feeback.</p>
+<div class="main-wrapper">
+  <div class="fbHeader">
+      <h4>Your feedback matters!</h2>
+  </div>
+  <div class="container sub-container">
+    <div class="row" >
+      <div class="col col-lg">                
+        <%= form_for [@form, @submission] do |f| %>
+          <%= f.hidden_field :contact, value: params[:contact] %>
+            <% @qst.each do |a| %>
+              <%= f.fields_for :answers do |ff|  %>
+
+                <div class="question-css">
+                  <%= ff.hidden_field :question_id, value: a.id %>
+                  <%= a.question_text %>
+                </div>
+                                  
+                <ul class="donate-now">
+                  <li>
+                    <%= ff.radio_button :answer_text, 'Good', class: 'form-check-input' %>
+                    <%= ff.label :answer_text, 'Good' , class: 'form-check-label btn',  value: "Good"  %>
+                  </li>              
+                  <li>
+                    <%= ff.radio_button :answer_text, 'Neutral', class: 'form-check-input' %>
+                    <%= ff.label :answer_text, 'Neutral' , class: 'form-check-label btn',  value: "Neutral" %>
+                  </li>
+                  <li>
+                    <%= ff.radio_button :answer_text, 'Bad', class: 'form-check-input' %>
+                    <%= ff.label :answer_text, 'Bad' , class: 'form-check-label btn',  value: "Bad" %>
+                  </li>
+                </ul>
+                                  
+            <% end %>
+          <% end %>    
+          <br>
+          <br>           
+          <div class="form-group fbButton">
+            <%= f.submit "Submit", class: 'btn btn-primary' %>
           </div>
-        </div>
-
-        <div class="card-body p-3 col">
-
-          <%= form_for [@form, @submission] do |f| %>
-            <%= f.hidden_field :contact, value: params[:contact] %>
-              <% @qst.each do |a| %>
-                <%= f.fields_for :answers do |ff|  %>
-
-                  <div class="card-text question-css">
-                    <%= ff.hidden_field :question_id, value: a.id %>
-                    <%= a.question_text %>
-                  </div>
-                  
-                  
-                    <ul class="donate-now">
-                      <li>
-                        <%= ff.radio_button :answer_text, 'Good', class: 'form-check-input' %>
-                        <%= ff.label :answer_text, 'Good' , class: 'form-check-label btn',  value:  "Good"  %>
-                      </li>              
-                      <li>
-                        <%= ff.radio_button :answer_text, 'Neutral', class: 'form-check-input' %>
-                        <%= ff.label :answer_text, 'Neutral' , class: 'form-check-label btn',  value:  "Neutral" %>
-                      </li>
-                      <li>
-                        <%= ff.radio_button :answer_text, 'Bad', class: 'form-check-input' %>
-                        <%= ff.label :answer_text, 'Bad' , class: 'form-check-label btn',  value:  "Bad" %>
-                      </li>
-                    </ul>
-                  
-                  
-              <% end %>
-            <% end %>    
-            <br>
-            <br>           
-            <div class="form-group">
-              <%= f.submit "Submit", class: 'btn btn-primary' %>
-            </div>
-          <% end %>
+        <% end %>      
       </div>
-    </div>
-  </div>  
+    </div>  
+    <hr />
+  </div>
 </div>
+
+
+
 
 
 
