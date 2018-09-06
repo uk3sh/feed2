@@ -34,7 +34,8 @@ body {
 
  .question-css{
    font-size: 20px;
-   font-style: italic;
+   color: gray;   
+   
  }
 
  .bttn-and-txt{
@@ -44,30 +45,33 @@ body {
 
  .donate-now {
   list-style-type:none;
-  margin:25px 25px 25px 25px;
+  margin:5px 0px 0px 0px;
   padding:0;
+  
+  display: inline-block;
   
 }
 
 .donate-now li {
-  float: left;
+  display: inline-block;
   margin:0 5px 0 0;
- width:100px;
- height:40px;
- position:relative;
+  width:100px;
+  height:40px;
+  position:relative;
+  
 }
 
 .donate-now label, .donate-now input {
- display:block;
- position:absolute;
- top:0;
- left:0;
- right:0;
- bottom:0;
+  position:absolute;
+  top:0;
+  left:0;
+  right:0;
+  bottom:0;
+ 
 }
 
 .donate-now input[type="radio"] {
- opacity:0.0001;
+ opacity:0.001;
  z-index:100;
 }
 
@@ -76,6 +80,7 @@ body {
   border:1px solid #CCC; 
   cursor:pointer;
   z-index:90;
+  text-align: center
 }
 
 .donate-now label:hover {

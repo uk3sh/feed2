@@ -1,6 +1,6 @@
 <div class="container h-100">
   <div class="row h-100 justify-content-center align-items-center" >
-    <div class="col my-auto">
+    <div class="col col-lg-6 my-auto">
       <div class="card border-primary rounded-0">
         
         <div class="card-header p-0">
@@ -10,7 +10,7 @@
           </div>
         </div>
 
-        <div class="card-body p-3 col ">
+        <div class="card-body p-3 col">
 
           <%= form_for [@form, @submission] do |f| %>
             <%= f.hidden_field :contact, value: params[:contact] %>
@@ -22,24 +22,27 @@
                     <%= a.question_text %>
                   </div>
                   
-                  <ul class="donate-now">
-                    <li>
-                      <%= ff.radio_button :answer_text, 'Good', class: 'form-check-input' %>
-                      <%= ff.label :answer_text, 'Good' , class: 'form-check-label',  value:  "Good"  %>
-                    </li>
-                    <li>
-                      <%= ff.radio_button :answer_text, 'Neutral', class: 'form-check-input' %>
-                      <%= ff.label :answer_text, 'Neutral' , class: 'form-check-label',  value:  "Neutral" %>
-                    </li>
-                    <li>
-                      <%= ff.radio_button :answer_text, 'Bad', class: 'form-check-input' %>
-                      <%= ff.label :answer_text, 'Bad' , class: 'form-check-label',  value:  "Bad" %>
-                    </li>
-                  </ul>
- 
+                  
+                    <ul class="donate-now">
+                      <li>
+                        <%= ff.radio_button :answer_text, 'Good', class: 'form-check-input' %>
+                        <%= ff.label :answer_text, 'Good' , class: 'form-check-label btn',  value:  "Good"  %>
+                      </li>              
+                      <li>
+                        <%= ff.radio_button :answer_text, 'Neutral', class: 'form-check-input' %>
+                        <%= ff.label :answer_text, 'Neutral' , class: 'form-check-label btn',  value:  "Neutral" %>
+                      </li>
+                      <li>
+                        <%= ff.radio_button :answer_text, 'Bad', class: 'form-check-input' %>
+                        <%= ff.label :answer_text, 'Bad' , class: 'form-check-label btn',  value:  "Bad" %>
+                      </li>
+                    </ul>
+                  
+                  
               <% end %>
             <% end %>    
             <br>
+            <br>           
             <div class="form-group">
               <%= f.submit "Submit", class: 'btn btn-primary' %>
             </div>
