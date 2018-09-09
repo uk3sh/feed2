@@ -18,11 +18,11 @@
                 <ul class="donate-now">
                   <li>
                     <%= ff.radio_button :answer_text, 'Good', class: 'form-check-input' %>
-                    <%= ff.label :answer_text, 'Good' , class: 'form-check-label btn',  value: "Good"  %>
+                    <%= ff.label :answer_text, a.option.first , class: 'form-check-label btn',  value: a.option.first %>
                   </li>              
                   <li>
                     <%= ff.radio_button :answer_text, 'Neutral', class: 'form-check-input' %>
-                    <%= ff.label :answer_text, 'Neutral' , class: 'form-check-label btn',  value: "Neutral" %>
+                    <%= ff.label :answer_text, a.option[1] , class: 'form-check-label btn',  value: a.option[1] %>
                   </li>
                   <li>
                     <%= ff.radio_button :answer_text, 'Bad', class: 'form-check-input' %>
