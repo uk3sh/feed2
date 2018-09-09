@@ -4,6 +4,8 @@ $( document ).on('turbolinks:load', function() {
     $(':radio').not(this).closest('li').removeClass('selected');
     $(this).closest('li').addClass('selected');
   });
+
+  
   
 });
 
