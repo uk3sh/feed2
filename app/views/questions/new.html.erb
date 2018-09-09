@@ -18,29 +18,32 @@
     <%= f.select :question_type, [ 'Text', 'MCQ'],  {}, {:id=>"drop"} %>
   </div>
 
+  
   <div class="form-group">
     <%= f.label :question_text %>
     <%= f.text_area :question_text, class: 'col-md-6 form-control' %>
   </div>  
 
-  <div class="form-group">
-    <%= f.label :option %>
-    <%= f.text_field :option, class: 'col-md-6 form-control' , multiple: true %>
-  </div>
+  <div id="option-form" style="display:none;">
+    <div class="form-group">
+      <%= f.label :option1 %>
+      <%= f.text_field :option, class: 'col-md-6 form-control' , multiple: true %>
+    </div>
 
-  <div class="form-group">
-    <%= f.label :option %>
-    <%= f.text_field :option, class: 'col-md-6 form-control' , multiple: true %>
-  </div>
+    <div class="form-group">
+      <%= f.label :option2 %>
+      <%= f.text_field :option, class: 'col-md-6 form-control' , multiple: true %>
+    </div>
 
-  <div class="form-group">
-    <%= f.label :option %>
-    <%= f.text_field :option, class: 'col-md-6 form-control' , multiple: true %>
-  </div>
+    <div class="form-group">
+      <%= f.label :option3 %>
+      <%= f.text_field :option, class: 'col-md-6 form-control' , multiple: true %>
+    </div>
 
-  <div class="form-group">
-    <%= f.label :option %>
-    <%= f.text_field :option, class: 'col-md-6 form-control' , multiple: true %>
+    <div class="form-group">
+      <%= f.label :option4 %>
+      <%= f.text_field :option, class: 'col-md-6 form-control' , multiple: true %>
+    </div>
   </div>
 
   <div class="form-group">

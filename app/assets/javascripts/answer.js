@@ -5,7 +5,19 @@ $( document ).on('turbolinks:load', function() {
     $(this).closest('li').addClass('selected');
   });
 
-  
+  $('#drop').change(function() {
+    console.log("hello");
+    var opt = $(this).val();
+    if (opt=='MCQ'){
+      console.log(opt);
+      $("#option-form").show();
+    }
+
+    if (opt=='Text'){
+      console.log(opt);
+      $("#option-form").hide();
+    }
+  });  
   
 });
 
