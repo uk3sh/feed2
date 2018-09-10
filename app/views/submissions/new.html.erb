@@ -14,22 +14,44 @@
                   <%= ff.hidden_field :question_id, value: a.id %>
                   <%= a.question_text %>
                 </div>
-                                  
-                <ul class="donate-now">
-                  <li>
-                    <%= ff.radio_button :answer_text, 'Good', class: 'form-check-input' %>
-                    <%= ff.label :answer_text, a.option.first , class: 'form-check-label btn',  value: a.option.first %>
-                  </li>              
-                  <li>
-                    <%= ff.radio_button :answer_text, 'Neutral', class: 'form-check-input' %>
-                    <%= ff.label :answer_text, a.option[1] , class: 'form-check-label btn',  value: a.option[1] %>
-                  </li>
-                  <li>
-                    <%= ff.radio_button :answer_text, 'Bad', class: 'form-check-input' %>
-                    <%= ff.label :answer_text, 'Bad' , class: 'form-check-label btn',  value: "Bad" %>
-                  </li>
-                </ul>
-                                  
+
+                <% if a.question_type == "Text" %>                
+                  <%= ff.text_area :answer_text, class: 'col-md-6 col form-control subform-textbox-css' %>
+                <% end %>
+
+                <% if a.question_type == "MCQ" %>
+                  <% ary = a.option %>
+                  <% ary.each do |x| %>
+                    <% unless x.blank? %>
+                    <ul class="donate-now">
+                      <li>
+                        <%= ff.radio_button :answer_text, x, class: 'form-check-input' %>
+                        <%= ff.label :answer_text, x , class: 'form-check-label btn',  value: x %>
+                      </li>                                
+                    </ul>
+                    <% end %>
+                  <% end %>
+                <% end %>
+
+                <div class="rating">
+                  <% if a.question_type == "Rating" %>
+                    <%=ff.radio_button :answer_text, 5, :id => "star5" %>
+                    <label for="star5"></label>
+
+                    <%=ff.radio_button :answer_text, 4, :id => "star4" %>
+                    <label for="star4" ></label>
+
+                    <%=ff.radio_button :answer_text, 3, :id => "star3" %>
+                    <label for="star3"></label>
+
+                    <%=ff.radio_button :answer_text, 2, :id => "star2" %>
+                    <label for="star2"></label>
+
+                    <%=ff.radio_button :answer_text, 1, :id => "star1" %>
+                    <label for="star1"></label>
+                  <% end %>
+                </div>                
+                                                                                  
             <% end %>
           <% end %>    
           <br>
