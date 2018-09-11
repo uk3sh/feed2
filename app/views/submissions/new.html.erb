@@ -15,24 +15,6 @@
                   <%= a.question_text %>
                 </div>
 
-                <% if a.question_type == "Text" %>                
-                  <%= ff.text_area :answer_text, class: 'col-md-6 col form-control subform-textbox-css' %>
-                <% end %>
-
-                <% if a.question_type == "MCQ" %>
-                  <% ary = a.option %>
-                  <% ary.each do |x| %>
-                    <% unless x.blank? %>
-                    <ul class="donate-now">
-                      <li>
-                        <%= ff.radio_button :answer_text, x, class: 'form-check-input' %>
-                        <%= ff.label :answer_text, x , class: 'form-check-label btn',  value: x %>
-                      </li>                                
-                    </ul>
-                    <% end %>
-                  <% end %>
-                <% end %>
-
                 <div class="rating">
                   <% if a.question_type == "Rating" %>
                     <%=ff.radio_button :answer_text, 5, :id => "star5" %>
@@ -50,8 +32,28 @@
                     <%=ff.radio_button :answer_text, 1, :id => "star1" %>
                     <label for="star1"></label>
                   <% end %>
-                </div>                
-                                                                                  
+                </div> 
+                            
+                <% if a.question_type == "Text" %>                
+                  <%= ff.text_area :answer_text, class: 'col-md-6 col form-control subform-textbox-css' %>
+                <% end %>
+
+                <% if a.question_type == "MCQ" %>
+                  <% ary = a.option %>
+                  <% ary.each do |x| %>
+                    <% unless x.blank? %>
+                      <ul class="donate-now">
+                        <li>
+                          <%= ff.radio_button :answer_text, x, class: 'form-check-input' %>
+                          <%= ff.label :answer_text, x , class: 'form-check-label btn',  value: x %>
+                        </li>                                
+                      </ul>
+                    <% end %>
+                  <% end %>
+                <% end %>
+
+                    
+                                                                                                                         
             <% end %>
           <% end %>    
           <br>
