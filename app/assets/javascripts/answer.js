@@ -17,6 +17,11 @@ $( document ).on('turbolinks:load', function() {
       console.log(opt);
       $("#option-form").hide();
     }
+
+    if (opt=='Rating'){
+      console.log(opt);
+      $("#option-form").hide();
+    }
   });  
   
 });
