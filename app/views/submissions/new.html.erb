@@ -15,24 +15,11 @@
                   <%= a.question_text %>
                 </div>
 
-                <div class="rating">
+                
                   <% if a.question_type == "Rating" %>
-                    <%=ff.radio_button :answer_text, 5, :id => "star5" %>
-                    <label for="star5"></label>
-
-                    <%=ff.radio_button :answer_text, 4, :id => "star4" %>
-                    <label for="star4" ></label>
-
-                    <%=ff.radio_button :answer_text, 3, :id => "star3" %>
-                    <label for="star3"></label>
-
-                    <%=ff.radio_button :answer_text, 2, :id => "star2" %>
-                    <label for="star2"></label>
-
-                    <%=ff.radio_button :answer_text, 1, :id => "star1" %>
-                    <label for="star1"></label>
+                    <%= ff.hidden_field :answer_text, class: 'rating' %>                    
                   <% end %>
-                </div> 
+                
                             
                 <% if a.question_type == "Text" %>                
                   <%= ff.text_area :answer_text, class: 'col-md-6 col form-control subform-textbox-css' %>

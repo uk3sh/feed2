@@ -16,7 +16,8 @@
     <%= f.text_area :question_text, class: 'col-md-6 form-control', placeholder: "Enter the question you want to ask the user" %>
   </div>
 
-  <div class="form-group">
+  <% if @question.question_type == "MCQ" %>
+    <div class="form-group">
       <%= f.label :option1 %>
       <%= f.text_field :option, class: 'col-md-6 form-control' , multiple: true %>
     </div>
@@ -34,8 +35,8 @@
     <div class="form-group">
       <%= f.label :option4 %>
       <%= f.text_field :option, class: 'col-md-6 form-control' , multiple: true %>
-    </div>
-  </div>
+    </div>    
+  <% end %>
 
   
 
