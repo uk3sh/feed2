@@ -1,36 +1,36 @@
-
-
 <div class="container">
-  <div class="row">
-    <div class="col">
-      <h1>Forms</h1>
+  <div class="contentContainer">
+    <div class="row">
+      <div class="col">
+        <h1>Forms</h1>
 
-      <table class="table table-bordered table-responsive w-100 d-block d-md-table">
-        <thead>
-          <tr>
-            <th>Name</th>
-            <th>Message</th>
-            <th colspan="4"></th>
-          </tr>
-        </thead>
-
-        <tbody>
-          <% @forms.each do |form| %>
+        <table class="table table-bordered table-responsive w-100 d-block d-md-table">
+          <thead>
             <tr>
-              <td><%= form.name %></td>
-              <td><%= form.message %></td>
-              <td><%= link_to 'Show', form, class: "btn btn-primary" %></td>
-              <td><%= link_to 'Edit', edit_form_path(form), class: "btn btn-primary" %></td>
-              <td><%= link_to 'Destroy', form, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-primary" %></td>
-              <td><%= link_to 'View Response', form_submissions_path(form), class: "btn btn-primary" %></td>
+              <th>Name</th>
+              <th>Message</th>
+              <th colspan="4"></th>
             </tr>
-          <% end %>
-        </tbody>
-      </table>
+          </thead>
 
-      <br>
+          <tbody>
+            <% @forms.each do |form| %>
+              <tr>
+                <td><%= form.name %></td>
+                <td><%= form.message %></td>
+                <td><%= link_to 'Show', form, class: "btn btn-primary" %></td>
+                <td><%= link_to 'Edit', edit_form_path(form), class: "btn btn-primary" %></td>
+                <td><%= link_to 'Destroy', form, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-primary" %></td>
+                <td><%= link_to 'View Response', form_submissions_path(form), class: "btn btn-primary" %></td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
 
-      <%= link_to 'New Form', new_form_path, class: "btn btn-primary" %>
+        <br>
+
+        <%= link_to 'New Form', new_form_path, class: "btn btn-primary" %>
+      </div>
     </div>
   </div>
 </div>
