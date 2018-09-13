@@ -19,7 +19,7 @@
                 <td><%= form.name %></td>
                 <td><%= form.message %></td>
                 <td><%= link_to 'Show', form, class: "btn btn-primary" %></td>
-                <td><%= link_to 'Edit', edit_form_path(form), class: "btn btn-primary" %></td>
+                <td><%= link_to 'Edit', edit_form_path(form), class: "btn btn-primary", :remote => true, "data-toggle" => "modal", "data-target" => "edit-form" %></td>
                 <td><%= link_to 'Destroy', form, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-primary" %></td>
                 <td><%= link_to 'View Response', form_submissions_path(form), class: "btn btn-primary" %></td>
               </tr>
@@ -29,7 +29,11 @@
 
         <br>
 
-        <%= link_to 'New Form', new_form_path, class: "btn btn-primary" %>
+        <%= link_to 'New Form', new_form_path, :class => "btn btn-primary", :remote => true, "data-toggle" => "modal", "data-target" => "my-modal" %>
+
+        <div id="my-modal" class="modal hide fade" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true"></div>
+        <div id="edit-form" class="modal hide fade" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true"></div>
+
       </div>
     </div>
   </div>
