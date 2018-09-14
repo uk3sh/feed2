@@ -10,7 +10,7 @@ class FormsController < ApplicationController
   # GET /forms
   # GET /forms.json
   def index
-    @forms = Form.all
+    @forms = Form.paginate(:page => params[:page], :per_page => 5)
     @recent = Submission.most_recent(5)
     @today = Submission.today
     @good_counts = Answer.group(:answer_text).count["good"]

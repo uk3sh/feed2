@@ -14,13 +14,12 @@
     <% @submissions.each do |submission| %>
       <tr>
         <td><%= submission.contact %></td>
-        <td><%= link_to 'Show', form_submission_path(@form, submission), remote: true %></td>
-        
+        <td><%= link_to 'Show', form_submission_path(@form, submission), remote: true %></td>        
       </tr>
     <% end %>
   </tbody>
 </table>
-
+<%= will_paginate @submissions %>
 <br>
 
 <div id="answer-form" class="card card-body bg-light" style="display:none;">

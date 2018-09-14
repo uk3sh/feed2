@@ -18,7 +18,7 @@
         <% end %>
       </tbody>
     </table>
-
+    <%= will_paginate @questions %>
     <br>
 
     <%= link_to 'New Question', new_form_question_path, class: "btn btn-primary" %>

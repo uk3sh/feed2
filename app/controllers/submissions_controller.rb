@@ -5,7 +5,7 @@ class SubmissionsController < ApplicationController
   # GET /submissions
   # GET /submissions.json
   def index
-    @submissions = @form.submissions.all
+    @submissions = @form.submissions.paginate(:page => params[:page], :per_page => 5)
   end
 
   # GET /submissions/1
