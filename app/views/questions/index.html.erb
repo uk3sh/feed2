@@ -18,7 +18,9 @@
         <% end %>
       </tbody>
     </table>
+    <div class="digg_pagination">
     <%= will_paginate @questions %>
+    </div>
     <br>
 
     <%= link_to 'New Question', new_form_question_path, class: "btn btn-primary" %>

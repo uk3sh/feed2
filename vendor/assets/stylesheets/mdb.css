@@ -1457,6 +1457,7 @@ button.bg-light:focus {
 .mml-1 {
   margin-left: -0.25rem !important; }
 
+/* 
 @font-face {
   font-family: "Roboto";
   src: local(Roboto Thin), url("../font/roboto/Roboto-Thin.eot");
@@ -1487,9 +1488,13 @@ button.bg-light:focus {
   src: url("../font/roboto/Roboto-Bold.eot?#iefix") format("embedded-opentype"), url("../font/roboto/Roboto-Bold.woff2") format("woff2"), url("../font/roboto/Roboto-Bold.woff") format("woff"), url("../font/roboto/Roboto-Bold.ttf") format("truetype");
   font-weight: 700; }
 
+ */
+
 body {
   font-family: "Roboto", sans-serif;
-  font-weight: 300; }
+  font-weight: 400;
+  
+ }
 
 h1, h2, h3, h4, h5, h6 {
   font-weight: 300; }
@@ -7342,11 +7347,11 @@ footer.page-footer {
 
 table th {
   font-size: 0.9rem;
-  font-weight: 400; }
+  font-weight: 500; }
 
 table td {
   font-size: 0.9rem;
-  font-weight: 300; }
+  font-weight: 400; }
 
 table.table thead th {
   border-top: none; }
