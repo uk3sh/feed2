@@ -4,7 +4,7 @@
       <div class="col">
         <h1>Forms</h1>
 
-        <table class="table table-bordered table-responsive w-100 d-block d-md-table">
+        <table class="table table-bordered table-hover table-responsive w-100 d-block d-md-table">
           <thead>
             <tr>
               <th>Name</th>
@@ -20,7 +20,7 @@
                 <td><%= form.message %></td>
                 <td><%= link_to 'Show', form, class: "btn btn-primary" %></td>
                 <td><%= link_to 'Edit', edit_form_path(form), class: "btn btn-primary", :remote => true, "data-toggle" => "modal", "data-target" => "edit-form" %></td>
-                <td><%= link_to 'Destroy', form, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-primary" %></td>
+                <td><%= link_to 'Delete', form, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %></td>
                 <td><%= link_to 'View Response', form_submissions_path(form), class: "btn btn-primary" %></td>
               </tr>
             <% end %>

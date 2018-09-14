@@ -1,6 +1,6 @@
 <div class="container col-lg-8">
   <h1>Questions</h1>
-    <table class="table table-bordered">
+    <table class="table table-bordered table-hover table-responsive w-100 d-block d-md-table">
       <thead>
         <tr>
           <th>Question text</th>
@@ -13,7 +13,7 @@
           <tr>
             <td><%= question.question_text %></td>        
             <td><%= link_to 'Edit', edit_form_question_path(@form, question), class: "btn btn-primary" %></td>
-            <td><%= link_to 'Destroy', form_question_path(@form, question) , method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-primary" %></td>
+            <td><%= link_to 'Delete', form_question_path(@form, question) , method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %></td>
           </tr>
         <% end %>
       </tbody>
