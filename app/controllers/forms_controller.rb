@@ -95,10 +95,13 @@ class FormsController < ApplicationController
     CSV.foreach(params[:file].path) do |row|
       ph = row[0]
       qwerty = params[:url]
+      sender_id = params[:sender_ID]
+      message = params[:message]
       puts ph
       puts qwerty
-      Net::HTTP.get(URI.parse("https://control.msg91.com/api/sendhttp.php?authkey=153352AdRjnfzD8x4N5922d370&mobiles=91#{ph}&message=Hello! Please leave feedback here #{qwerty}?contact=#{ph}&sender=UKESHV&route=4&country=91"))
+      Net::HTTP.get(URI.parse("https://control.msg91.com/api/sendhttp.php?authkey=153352AdRjnfzD8x4N5922d370&mobiles=91#{ph}&message=#{message} #{qwerty}?contact=#{ph}&sender=#{sender_id}&route=4&country=91"))      
     end
+    redirect_to forms_path
   end
 
   def generate_qr
