@@ -40,7 +40,7 @@ class FormsController < ApplicationController
       if @form.save
         format.html { redirect_to @form, notice: 'Form was successfully created.' }
         format.json { render :show, status: :created, location: @form }
-      else
+      else        
         format.html { render :new }
         format.json { render json: @form.errors, status: :unprocessable_entity }
       end

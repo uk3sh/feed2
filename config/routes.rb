@@ -2,8 +2,10 @@ Rails.application.routes.draw do
   
   devise_for :users, controllers: { registrations: "registrations" }
   
+  
   get '/' => 'dashboard#index', :constraints => { :subdomain => /.+/ }
   
+  root 'dashboard#index'
   
   post '/sms' => "forms#sms", :as => :sms
   get '/thanks' => "submissions#thanks", :as => :thanks
