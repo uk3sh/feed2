@@ -11,16 +11,16 @@ class Form < ApplicationRecord
   has_many :questions
   has_many :submissions 
 
-  def generate_url(subdomain, domain)
-
-    chars = ['0'..'9', 'A'..'Z', 'a'..'z'].map { |range| range.to_a }.flatten
-    short_url = 6.times.map { chars.sample }.join
-    puts short_url
-    slug = 'http://' + subdomain + '.' + domain + '/'+ short_url
-    puts slug
+  def generate_url(subdomain, domain)    
 
     x = 'http://' + subdomain + '.' + domain + '/' + 'forms/' + self.id.to_s + '/' + 'submissions/new'
-    self.url = x   
+    self.url = x  
+    
+    chars = ['0'..'9', 'A'..'Z', 'a'..'z'].map { |range| range.to_a }.flatten
+    random = 6.times.map { chars.sample }.join    
+    slug = random
+    puts slug
+    self.short_url = slug
      
   end
   

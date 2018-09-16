@@ -4,13 +4,10 @@ Rails.application.routes.draw do
   
   
   get '/' => 'dashboard#index', :constraints => { :subdomain => /.+/ }
-  
   root 'dashboard#index'
-  
-  post '/sms' => "forms#sms", :as => :sms
-  get '/thanks' => "submissions#thanks", :as => :thanks
-  
 
+  post '/sms' => "forms#sms", :as => :sms
+  get '/thanks' => "submissions#thanks", :as => :thanks  
   get '/qrcode' => "forms#generate_qr" , :as => :qrcode
   
 
@@ -22,7 +19,7 @@ Rails.application.routes.draw do
     resources :submissions
   end
   
-
+  get'/:short_url' => "forms#redir"
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

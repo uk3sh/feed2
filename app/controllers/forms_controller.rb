@@ -110,6 +110,11 @@ class FormsController < ApplicationController
     image = qr.as_png(size: 750)
     send_data image, filename: "feedback.png", type: "image/png"
   end
+
+  def redir    
+    @zxcv = Form.where(short_url: params[:short_url]).first
+    redirect_to @zxcv.url
+  end
   
 
   private
