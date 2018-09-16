@@ -16,5 +16,11 @@ Hello <%= current_user.email %>
 <br>
 <br>
 <br>
-<%= column_chart Submission.group_by_day_of_week(:created_at, format: "%a").count %>
-
+<div class = "row">
+  <div class="col col-md col-lg mx-auto">
+    <div class="text-center">
+      <h4>This week's feedback's</h4>
+      <%= column_chart Submission.group_by_day_of_week(:created_at, format: "%a").count %>
+    </div>
+  </div>
+</div>
