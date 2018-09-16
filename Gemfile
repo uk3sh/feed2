@@ -45,6 +45,9 @@ gem "font-awesome-rails"
 gem 'will_paginate', '~> 3.1.1'
 gem 'will_paginate-bootstrap' 
 
+gem 'chartkick'
+gem 'groupdate'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platform: :mri
