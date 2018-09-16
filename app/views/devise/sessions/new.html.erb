@@ -1,5 +1,7 @@
 
-
+<%
+=begin
+%>
 <div class="container h-100">
   <div class="row h-100 align-items-center justify-content-center">
     <div class="col-md-6">
@@ -30,4 +32,42 @@
       <%= render "devise/shared/links" %>
     </div>
   </div>
+</div>
+<%
+=end %>
+<br>
+<br>
+<br>
+<br>
+<div class="card">
+
+  <h5 class="card-header info-color white-text text-center py-4">
+    <strong>Log in</strong>
+  </h5>
+
+  <div class="card-body px-lg-5 pt-0">
+    <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+      <div class="md-form">
+        <%= f.label :email %><br />
+        <%= f.email_field :email, autofocus: true, autocomplete: "email", class: 'form-control' %>
+      </div>
+
+      <div class="md-form">
+        <%= f.label :password %><br />
+        <%= f.password_field :password, autocomplete: "off", class: 'form-control' %>
+      </div>
+
+      <% if devise_mapping.rememberable? -%>
+        <div class="form-check">
+          <%= f.check_box :remember_me, class: 'form-check-input' %>
+          <%= f.label :remember_me, class: 'form-check-label' %>
+        </div>
+      <% end -%>
+
+      <div class="actions">
+        <%= f.submit "Log in", class: 'btn btn-outline-info btn-rounded btn-block my-4 waves-effect z-depth-0' %>
+      </div>
+    <% end %>
+  </div>
+
 </div>
