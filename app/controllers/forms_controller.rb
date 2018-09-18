@@ -86,7 +86,7 @@ class FormsController < ApplicationController
     puts message
 
     Net::HTTP.get(URI.parse("https://control.msg91.com/api/sendhttp.php?authkey=153352AdRjnfzD8x4N5922d370&mobiles=91#{ph}&message=#{message} #{qwerty}?contact=#{ph}&sender=#{sender_id}&route=4&country=91"))
-    redirect_to forms_path
+    redirect_back(fallback_location: forms_path, notice: "SMS sent successfully!")
   end
 
   def import
@@ -101,7 +101,7 @@ class FormsController < ApplicationController
       puts qwerty
       Net::HTTP.get(URI.parse("https://control.msg91.com/api/sendhttp.php?authkey=153352AdRjnfzD8x4N5922d370&mobiles=91#{ph}&message=#{message} #{qwerty}?contact=#{ph}&sender=#{sender_id}&route=4&country=91"))      
     end
-    redirect_to forms_path
+    redirect_back(fallback_location: forms_path, notice: "SMS sent successfully!")
   end
 
   def generate_qr
