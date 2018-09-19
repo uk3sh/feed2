@@ -6,6 +6,7 @@
   <thead>
     <tr>
       <th>Contact No</th>
+      <th>Time</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -14,6 +15,7 @@
     <% @submissions.each do |submission| %>
       <tr>
         <td><%= submission.contact %></td>
+        <td><%= submission.created_at.in_time_zone('Asia/Kolkata').strftime("%d/%m/%y - %I:%M %p") %></td>
         <td><%= link_to 'Show', form_submission_path(@form, submission), remote: true %></td>        
       </tr>
     <% end %>
@@ -23,7 +25,9 @@
 <%= will_paginate @submissions %>
 </div>
 <br>
-
+<%= link_to 'Back', forms_path, :class => "btn btn-primary" %>
+<br>
+<br>
 <div id="answer-form" class="card card-body bg-light" style="display:none;">
 </div>
 
