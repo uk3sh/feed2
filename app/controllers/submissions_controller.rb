@@ -1,4 +1,6 @@
 class SubmissionsController < ApplicationController
+  before_action :authenticate_user!, except: [:new, :create, :thanks]
+
   before_action :set_submission, only: [:show, :edit, :update, :destroy]
   before_action :set_form, only: [:create, :show, :index]
 
