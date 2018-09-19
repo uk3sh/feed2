@@ -48,6 +48,8 @@ gem 'will_paginate-bootstrap'
 gem 'chartkick'
 gem 'groupdate'
 
+gem 'scout_apm'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platform: :mri
