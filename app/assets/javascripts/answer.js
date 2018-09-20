@@ -25,6 +25,13 @@ $( document ).on('turbolinks:load', function() {
   }); 
   
   $('.rating').rating();
+
+  $("#form-share").steps({
+    headerTag: "h3",
+    bodyTag: "section",
+    enableAllSteps: true,
+    enablePagination: false
+  });
   
 });
 

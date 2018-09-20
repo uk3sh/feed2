@@ -20,3 +20,4 @@
 //= require popper
 //= require bootstrap-sprockets
 //= require simple-rating.js
+//= require jquery.steps.js
