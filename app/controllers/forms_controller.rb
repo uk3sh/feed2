@@ -115,6 +115,27 @@ class FormsController < ApplicationController
     @zxcv = Form.where(short_url: params[:short_url]).first
     redirect_to @zxcv.url
   end
+
+  def email
+    @email = params[:single_email][:email]
+    @body = params[:single_email][:message]
+    @form_url = params[:single_email][:url]
+    @sender_id = params[:single_email][:sender_ID]    
+    FormMailer.send_form_email(@email, @body, @form_url, @sender_id).deliver
+    redirect_back(fallback_location: forms_path, notice: "Email sent successfully!")
+  end
+
+  def bulk_email
+    params[:file]
+    CSV.foreach(params[:file].path) do |row|      
+      @email = row[0]
+      @body = params[:message]
+      @form_url = params[:url]  
+      @sender_id = params[:sender_ID]  
+      FormMailer.send_form_email(@email, @body, @form_url, @sender_id).deliver
+    end
+    redirect_back(fallback_location: forms_path, notice: "Emails sent successfully!")
+  end
   
 
   private

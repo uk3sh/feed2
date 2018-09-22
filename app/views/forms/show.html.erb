@@ -31,7 +31,6 @@
     <h3>SMS</h3>
     <section>
       Enter mobile number to send feedback form:
-
         <%= form_for :anything, url: "/sms" do |form| %>
           <div class="form-group">
             <%= form.text_field :number, class: 'col-md-6 form-control' %>
@@ -42,8 +41,7 @@
             <%= form.submit "Send SMS", class: "btn btn-primary"  %>
           </div>
         <% end  %>
-
-</br>
+        </br>
       Upload CSV for bulk sharing
 
       <%= form_tag import_forms_path, multipart:true do %>
@@ -55,17 +53,42 @@
           </br>
           <%= submit_tag "Upload", class: "btn btn-primary" %>
         </div>
-      <% end %>
-        
+      <% end %>        
     </section>
+    
+    <h3>Email</h3>
+    <section>
+      Enter Email ID to send feedback form:
+        <%= form_for :single_email, url: "/email" do |form| %>
+          <div class="form-group">
+            <%= form.text_field :email, class: 'col-md-6 form-control' %>
+            <%= form.hidden_field :url, value: @form.url %>            
+            <%= form.hidden_field :message, value: @form.message %>
+            <%= form.hidden_field :sender_ID, value: @form.sender_ID %>
+            </br>
+            <%= form.submit "Send Email", class: "btn btn-primary"  %>
+          </div>
+        <% end  %>
+
+        </br>
+        Upload CSV for bulk sharing
+        <%= form_tag bulk_email_forms_path, multipart:true do %>
+          <div class="form-group">
+            <%= hidden_field_tag "url", @form.url %>          
+            <%= hidden_field_tag "message", @form.message %>  
+            <%= hidden_field_tag "sender_ID", @form.sender_ID %> 
+            <%= file_field_tag :file, class: 'col-md-6 form-control' %>
+            </br>
+            <%= submit_tag "Upload", class: "btn btn-primary" %>
+          </div>
+        <% end %>                
+    </section>
+
     <h3>QR Code</h3>
     <section>
         <%= button_to 'Download QR Code', qrcode_path, method: :get, params: {'url' => @form.url}, class: "btn btn-primary" %>
     </section>
-    <h3>Email</h3>
-    <section>
-        Feature coming soon!
-    </section>
+
 </div>
 
 

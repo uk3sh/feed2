@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   root 'dashboard#index'
 
   post '/sms' => "forms#sms", :as => :sms
+  post '/email' => "forms#email", :as => :email
   get '/thanks' => "submissions#thanks", :as => :thanks  
   get '/qrcode' => "forms#generate_qr" , :as => :qrcode
   
@@ -15,6 +16,7 @@ Rails.application.routes.draw do
   resources :answers
   resources :forms do
     collection {post :import}
+    collection {post :bulk_email}
     resources :questions
     resources :submissions
   end
