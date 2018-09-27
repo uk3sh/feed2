@@ -2,19 +2,17 @@ class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :validatable
+         :recoverable, :rememberable, :validatable  
 
-  after_create :create_account, :create_tenant
+  belongs_to :account, inverse_of: :users
+
+  before_validation :create_account, on: :create
 
   private
 
   def create_account
-    account = Account.new(:email => email, :subdomain => subdomain)
-    account.save
+    puts 'hello!'
+    self.account = Account.create
   end
-
-  def create_tenant
-    Apartment::Tenant.create(subdomain)
-    Apartment::Tenant.switch!(subdomain)
-  end
+  
 end

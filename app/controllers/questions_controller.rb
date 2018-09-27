@@ -1,12 +1,14 @@
 class QuestionsController < ApplicationController
+
+  skip_after_action :verify_policy_scoped, only: [:new, :create]
+  before_action :authenticate_user!
   before_action :set_question, only: [:show, :edit, :update, :destroy]
-  before_action :set_form, only: [:create, :index, :edit]
+  before_action :set_form, only: [:create, :index, :new, :edit]
 
   # GET /questions
   # GET /questions.json
   def index  
-     
-    @questions = @form.questions.paginate(:page => params[:page], :per_page => 5)
+    @questions = policy_scope(@form.questions).paginate(:page => params[:page], :per_page => 5)
   end
 
   # GET /questions/1
@@ -16,9 +18,7 @@ class QuestionsController < ApplicationController
 
   # GET /questions/new
   def new
-    @form = Form.find(params[:form_id])
-    @question = @form.questions.build
-
+    @question = policy_scope(@form.questions).build
   end
 
   # GET /questions/1/edit
@@ -27,12 +27,8 @@ class QuestionsController < ApplicationController
 
   # POST /questions
   # POST /questions.json
-  def create
-    
-    @question = @form.questions.build(question_params)
-    
-    
-
+  def create    
+    @question = policy_scope(@form.questions).build(question_params)
     respond_to do |format|
       if @question.save
         format.html { redirect_to form_questions_path, notice: 'Question was successfully created.' }
@@ -71,11 +67,11 @@ class QuestionsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_question
-      @question = Question.find(params[:id])
+      @question = policy_scope(Question).find_by(id: params[:id])
     end
 
-    def set_form
-      @form = Form.find(params[:form_id])
+    def set_form      
+      @form = policy_scope(Form).find_by(id: params[:form_id])            
     end
 
 

@@ -3,6 +3,7 @@ class Submission < ApplicationRecord
   has_many :answers, inverse_of: :submission
   
   belongs_to :form
+  belongs_to :account
 
   accepts_nested_attributes_for :answers
   

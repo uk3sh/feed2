@@ -11,9 +11,11 @@ class Form < ApplicationRecord
   has_many :questions
   has_many :submissions 
 
-  def generate_url(subdomain, domain)    
+  belongs_to :account
 
-    x = 'http://' + subdomain + '.' + domain + '/' + 'forms/' + self.id.to_s + '/' + 'submissions/new'
+  def generate_url   
+
+    x = 'http://app.feedyfy.com' + '/' + 'forms/' + self.id.to_s + '/' + 'submissions/new'
     self.url = x  
     
     chars = ['0'..'9', 'A'..'Z', 'a'..'z'].map { |range| range.to_a }.flatten

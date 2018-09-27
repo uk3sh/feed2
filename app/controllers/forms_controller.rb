@@ -4,17 +4,18 @@ class FormsController < ApplicationController
   require 'net/https'
   require 'rqrcode'
 
+  skip_after_action :verify_policy_scoped, only: [:new, :create, :sms, :import, :generate_qr, :email, :bulk_email]
   before_action :authenticate_user!
   before_action :set_form, only: [:show, :edit, :update, :destroy]
 
   # GET /forms
   # GET /forms.json
   def index
-    @forms = Form.paginate(:page => params[:page], :per_page => 5)
+    @forms = policy_scope(Form).paginate(:page => params[:page], :per_page => 5)
+    
     @recent = Submission.most_recent(5)
     @today = Submission.today
-    @good_counts = Answer.group(:answer_text).count["good"]
-    @bad_counts = Answer.group(:answer_text).count["bad"]
+    
   end
 
   # GET /forms/1
@@ -34,7 +35,7 @@ class FormsController < ApplicationController
   # POST /forms
   # POST /forms.json
   def create
-    @form = Form.new(form_params)
+    @form = policy_scope(Form).new(form_params)
 
     respond_to do |format|
       if @form.save
@@ -46,7 +47,7 @@ class FormsController < ApplicationController
       end
     end
     
-    @form.generate_url(request.subdomain, request.domain)
+    @form.generate_url
     @form.save
     
   end
@@ -141,7 +142,8 @@ class FormsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_form
-      @form = Form.find(params[:id])
+      @form = policy_scope(Form).find_by(id: params[:id])
+      
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

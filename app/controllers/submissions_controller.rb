@@ -1,13 +1,15 @@
 class SubmissionsController < ApplicationController
+
+  skip_after_action :verify_policy_scoped, only: [:new, :create, :thanks]
   before_action :authenticate_user!, except: [:new, :create, :thanks]
 
   before_action :set_submission, only: [:show, :edit, :update, :destroy]
-  before_action :set_form, only: [:create, :show, :index]
+  before_action :set_form, only: [:create, :show, :index, :new]
 
   # GET /submissions
   # GET /submissions.json
   def index
-    @submissions = @form.submissions.paginate(:page => params[:page], :per_page => 5)
+    @submissions = policy_scope(@form.submissions).paginate(:page => params[:page], :per_page => 5)
   end
 
   # GET /submissions/1
@@ -17,16 +19,11 @@ class SubmissionsController < ApplicationController
   end
 
   # GET /submissions/new
-  def new
-    @form = Form.find(params[:form_id])
+  def new    
     @submission = @form.submissions.new
-
-    @qst = @form.questions.all
-  
+    @qst = @form.questions.all  
     @submission.answers.build
-
-    render layout: "testlayout"
-  
+    render layout: "testlayout"  
   end
 
   # GET /submissions/1/edit
@@ -35,15 +32,11 @@ class SubmissionsController < ApplicationController
 
   # POST /submissions
   # POST /submissions.json
-  def create
-    
-    @submission = @form.submissions.new(submission_params)
-    @submission.form_id = params[:form_id]        
+  def create    
+    @submission = policy_scope(@form.submissions).new(submission_params)
+    @submission.form_id = params[:form_id]               
     @submission.save!
-
-    redirect_to :thanks
-
-    
+    redirect_to :thanks    
   end
 
   def thanks
@@ -77,15 +70,15 @@ class SubmissionsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_submission
-      @submission = Submission.find(params[:id])
+      @submission = policy_scope(Submission).find_by(id: params[:id])
     end
 
     def set_form
-     @form = Form.find(params[:form_id])
+     @form = policy_scope(Form).find_by(id: params[:form_id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def submission_params
-      params.require(:submission).permit(:contact, answers_attributes: [:answer_text, :question_id])
+      params.require(:submission).permit(:contact, answers_attributes: [:answer_text, :question_id, :account_id])
     end
 end

@@ -1,6 +1,6 @@
 
 <% @ans.each do |an| %>
-  <%= Question.find(an.question_id).question_text %>
+  <%= policy_scope(Question).find_by(id: an.question_id).question_text %>
   <br>
   <%= an.answer_text %>
   <br>

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180916061007) do
+ActiveRecord::Schema.define(version: 20180926123251) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -29,6 +29,8 @@ ActiveRecord::Schema.define(version: 20180916061007) do
     t.integer  "question_id"
     t.integer  "submission_id"
     t.string   "contact"
+    t.integer  "account_id"
+    t.index ["account_id"], name: "index_answers_on_account_id", using: :btree
     t.index ["question_id"], name: "index_answers_on_question_id", using: :btree
     t.index ["submission_id"], name: "index_answers_on_submission_id", using: :btree
   end
@@ -41,6 +43,8 @@ ActiveRecord::Schema.define(version: 20180916061007) do
     t.string   "sender_ID"
     t.text     "message"
     t.string   "short_url"
+    t.integer  "account_id"
+    t.index ["account_id"], name: "index_forms_on_account_id", using: :btree
   end
 
   create_table "mc_questions", force: :cascade do |t|
@@ -56,6 +60,8 @@ ActiveRecord::Schema.define(version: 20180916061007) do
     t.integer  "form_id"
     t.string   "question_type"
     t.text     "option"
+    t.integer  "account_id"
+    t.index ["account_id"], name: "index_questions_on_account_id", using: :btree
     t.index ["form_id"], name: "index_questions_on_form_id", using: :btree
   end
 
@@ -64,6 +70,8 @@ ActiveRecord::Schema.define(version: 20180916061007) do
     t.datetime "updated_at", null: false
     t.integer  "form_id"
     t.string   "contact"
+    t.integer  "account_id"
+    t.index ["account_id"], name: "index_submissions_on_account_id", using: :btree
     t.index ["form_id"], name: "index_submissions_on_form_id", using: :btree
   end
 
@@ -76,8 +84,15 @@ ActiveRecord::Schema.define(version: 20180916061007) do
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
     t.string   "subdomain"
+    t.integer  "account_id"
+    t.index ["account_id"], name: "index_users_on_account_id", using: :btree
     t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end
 
+  add_foreign_key "answers", "accounts"
+  add_foreign_key "forms", "accounts"
+  add_foreign_key "questions", "accounts"
+  add_foreign_key "submissions", "accounts"
+  add_foreign_key "users", "accounts"
 end

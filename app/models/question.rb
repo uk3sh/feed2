@@ -9,6 +9,7 @@ class Question < ApplicationRecord
 
 
   belongs_to :form
+  belongs_to :account
   has_many :answers
 
   private
