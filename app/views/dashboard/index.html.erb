@@ -20,7 +20,7 @@ Hello <%= current_user.email %>
   <div class="col col-md col-lg mx-auto">
     <div class="text-center">
       <h4>This week's feedback's</h4>
-      <%= column_chart Submission.group_by_day_of_week(:created_at, format: "%a").count %>
+      <%= column_chart policy_scope(Submission).group_by_day_of_week("submissions.created_at", format: "%a").count %>
     </div>
   </div>
 </div>
