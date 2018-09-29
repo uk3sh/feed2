@@ -1,6 +1,6 @@
 class SubmissionsController < ApplicationController
 
-  skip_after_action :verify_policy_scoped, only: [:new, :create, :thanks]
+  skip_after_action :verify_policy_scoped, only: [:create, :thanks]
   before_action :authenticate_user!, except: [:new, :create, :thanks]
 
   before_action :set_submission, only: [:show, :edit, :update, :destroy]
