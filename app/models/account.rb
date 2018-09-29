@@ -3,5 +3,6 @@ class Account < ApplicationRecord
   has_many :forms
   has_many :questions
   has_many :submissions
-  has_many :answers
+  
+  
 end

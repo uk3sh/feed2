@@ -4,12 +4,12 @@ class SubmissionsController < ApplicationController
   before_action :authenticate_user!, except: [:new, :create, :thanks]
 
   before_action :set_submission, only: [:show, :edit, :update, :destroy]
-  before_action :set_form, only: [:create, :show, :index, :new]
+  before_action :set_form, only: [:show, :index]
 
   # GET /submissions
   # GET /submissions.json
   def index
-    @submissions = policy_scope(@form.submissions).paginate(:page => params[:page], :per_page => 5)
+    @submissions = @form.submissions.paginate(:page => params[:page], :per_page => 5)
   end
 
   # GET /submissions/1
@@ -19,7 +19,8 @@ class SubmissionsController < ApplicationController
   end
 
   # GET /submissions/new
-  def new    
+  def new  
+    @form = Form.find(params[:form_id])  
     @submission = @form.submissions.new
     @qst = @form.questions.all  
     @submission.answers.build
@@ -32,10 +33,12 @@ class SubmissionsController < ApplicationController
 
   # POST /submissions
   # POST /submissions.json
-  def create    
-    @submission = policy_scope(@form.submissions).new(submission_params)
-    @submission.form_id = params[:form_id]               
-    @submission.save!
+  def create  
+    @form = Form.find(params[:form_id])  
+    @submission = @form.submissions.new(submission_params)
+    @submission.form_id = params[:form_id]
+    @submission.account_id = @form.account_id                   
+    @submission.save
     redirect_to :thanks    
   end
 
@@ -70,7 +73,7 @@ class SubmissionsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_submission
-      @submission = policy_scope(Submission).find_by(id: params[:id])
+      @submission = Submission.find(params[:id])
     end
 
     def set_form
