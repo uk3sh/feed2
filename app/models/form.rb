@@ -15,7 +15,7 @@ class Form < ApplicationRecord
 
   def generate_url   
 
-    x = 'http://app.feedyfy.com' + '/' + 'forms/' + self.id.to_s + '/' + 'submissions/new'
+    x = 'https://app.feedyfy.com' + '/' + 'forms/' + self.id.to_s + '/' + 'submissions/new'
     self.url = x  
     
     chars = ['0'..'9', 'A'..'Z', 'a'..'z'].map { |range| range.to_a }.flatten
