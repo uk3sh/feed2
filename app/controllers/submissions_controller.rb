@@ -38,7 +38,7 @@ class SubmissionsController < ApplicationController
     @submission = @form.submissions.new(submission_params)
     @submission.form_id = params[:form_id]
     @submission.account_id = @form.account_id                   
-    @submission.save
+    @submission.save!
     redirect_to :thanks    
   end
 
