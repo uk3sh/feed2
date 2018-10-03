@@ -78,14 +78,13 @@ class FormsController < ApplicationController
 
   def sms
     ph = params[:anything][:number]
-    qwerty = params[:anything][:url]
-    sender_id = params[:anything][:sender_ID]
+    qwerty = params[:anything][:url]    
+    sender_id = Account.find_by(id: current_user.account_id).sender_id    
     message = params[:anything][:message]
     puts ph
     puts qwerty
     puts sender_id
     puts message
-
     Net::HTTP.get(URI.parse("https://control.msg91.com/api/sendhttp.php?authkey=153352AdRjnfzD8x4N5922d370&mobiles=91#{ph}&message=#{message} #{qwerty}?contact=#{ph}&sender=#{sender_id}&route=4&country=91"))
     redirect_back(fallback_location: forms_path, notice: "SMS sent successfully!")
   end
@@ -96,7 +95,7 @@ class FormsController < ApplicationController
     CSV.foreach(params[:file].path) do |row|
       ph = row[0]
       qwerty = params[:url]
-      sender_id = params[:sender_ID]
+      sender_id = Account.find_by(id: current_user.account_id).sender_id
       message = params[:message]
       puts ph
       puts qwerty
@@ -121,8 +120,9 @@ class FormsController < ApplicationController
     @email = params[:single_email][:email]
     @body = params[:single_email][:message]
     @form_url = params[:single_email][:url]
-    @sender_id = params[:single_email][:sender_ID]    
-    FormMailer.send_form_email(@email, @body, @form_url, @sender_id).deliver
+     
+    @from_email = Account.find_by(id: current_user.account_id).sender_email
+    FormMailer.send_form_email(@email, @body, @form_url, @from_email).deliver
     redirect_back(fallback_location: forms_path, notice: "Email sent successfully!")
   end
 
@@ -131,9 +131,9 @@ class FormsController < ApplicationController
     CSV.foreach(params[:file].path) do |row|      
       @email = row[0]
       @body = params[:message]
-      @form_url = params[:url]  
-      @sender_id = params[:sender_ID]  
-      FormMailer.send_form_email(@email, @body, @form_url, @sender_id).deliver
+      @form_url = params[:url]      
+      @from_email = Account.find_by(id: current_user.account_id).sender_email
+      FormMailer.send_form_email(@email, @body, @form_url, @from_email).deliver
     end
     redirect_back(fallback_location: forms_path, notice: "Emails sent successfully!")
   end

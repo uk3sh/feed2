@@ -13,6 +13,7 @@ Rails.application.routes.draw do
   
 
   resource :dashboard, controller: 'dashboard', :only => ['index']
+  resources :accounts
   resources :answers
   resources :forms do
     collection {post :import}

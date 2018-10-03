@@ -4,6 +4,8 @@ class Account < ApplicationRecord
   has_many :questions
   has_many :submissions
   has_many :answers
+
+  validates :sender_id, presence: true, length: { is: 6 }
   
   
 end
