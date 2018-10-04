@@ -3,10 +3,6 @@ class Form < ApplicationRecord
   validates :name, presence: true  
   validates :message, presence: true
 
-  
-
-  
-
   has_many :questions
   has_many :submissions 
 

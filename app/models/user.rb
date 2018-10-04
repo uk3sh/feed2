@@ -10,9 +10,8 @@ class User < ApplicationRecord
 
   private
 
-  def create_account
-    puts 'hello!'
-    self.account = Account.create
+  def create_account    
+    self.account = Account.create!
   end
   
 end
