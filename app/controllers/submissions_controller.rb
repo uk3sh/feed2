@@ -20,7 +20,7 @@ class SubmissionsController < ApplicationController
 
   # GET /submissions/new
   def new  
-    @form = Form.find(params[:form_id])  
+    @form = Form.where(short_url: params[:slug]).first
     @submission = @form.submissions.new
     @qst = @form.questions.all  
     @submission.answers.build
