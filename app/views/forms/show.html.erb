@@ -13,8 +13,10 @@
   <%= @form.message %>
 </p>
 
+<% if current_user.role == 'admin' %>
 <%= link_to "Show Questions", form_questions_path(@form), class: "btn btn-primary" %> 
 <%= link_to 'Edit', edit_form_path(@form), class: "btn btn-primary" %> 
+<% end %>
 <%= link_to 'Back', forms_path, class: "btn btn-primary" %>
 
 </br>

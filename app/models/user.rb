@@ -4,14 +4,24 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable  
 
-  belongs_to :account, inverse_of: :users
+  belongs_to :account, inverse_of: :users 
 
-  before_validation :create_account, on: :create
+  enum role: [:admin, :user]
+
+  before_validation :create_account, on: :create  
+
+  after_initialize :add_role
 
   private
 
   def create_account    
     self.account = Account.create!
+  end
+
+  def add_role
+    if self.new_record?
+      self.role ||= :admin
+    end
   end
   
 end

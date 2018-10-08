@@ -23,7 +23,7 @@
                 <% end %>
               </li>
               <li class="nav-item">
-                <% if user_signed_in? %>
+                <% if user_signed_in? && current_user.role == 'admin' %>
                   <%= link_to 'Account', edit_account_path(Account.find_by(id: current_user.account_id)), class: "nav-link" %>            
                 <% end %>
               </li>

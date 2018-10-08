@@ -1,6 +1,7 @@
 Hello <%= current_user.email %>
+<% if current_user.role == 'admin' %>
 <%= link_to 'Create New Form', new_form_path, class: "btn btn-primary float-right" %>
-<br>
+<% end %>
 <br>
 <br>
 <div class="row h-100 justify-content-center align-items-center">
@@ -13,7 +14,6 @@ Hello <%= current_user.email %>
     </div>
   </div>
 </div>
-<br>
 <br>
 <br>
 <div class = "row">

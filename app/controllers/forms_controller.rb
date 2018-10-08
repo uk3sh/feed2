@@ -25,11 +25,13 @@ class FormsController < ApplicationController
 
   # GET /forms/new
   def new
-    @form = Form.new    
+    @form = Form.new   
+    authorize @form
   end
 
   # GET /forms/1/edit
   def edit
+    authorize @form
   end
 
   # POST /forms

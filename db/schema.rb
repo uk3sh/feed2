@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20181001042130) do
+ActiveRecord::Schema.define(version: 20181007141653) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -37,6 +37,15 @@ ActiveRecord::Schema.define(version: 20181001042130) do
     t.index ["submission_id"], name: "index_answers_on_submission_id", using: :btree
   end
 
+  create_table "customers", force: :cascade do |t|
+    t.string   "first_name"
+    t.string   "last_name"
+    t.string   "phone_number"
+    t.string   "email_id"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+  end
+
   create_table "forms", force: :cascade do |t|
     t.text     "name"
     t.text     "url"
@@ -53,6 +62,14 @@ ActiveRecord::Schema.define(version: 20181001042130) do
     t.string   "question_text"
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
+  end
+
+  create_table "points", force: :cascade do |t|
+    t.integer  "reward_point"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+    t.integer  "customer_id"
+    t.index ["customer_id"], name: "index_points_on_customer_id", using: :btree
   end
 
   create_table "questions", force: :cascade do |t|
@@ -87,6 +104,7 @@ ActiveRecord::Schema.define(version: 20181001042130) do
     t.datetime "updated_at",                          null: false
     t.string   "subdomain"
     t.integer  "account_id"
+    t.integer  "role"
     t.index ["account_id"], name: "index_users_on_account_id", using: :btree
     t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
@@ -94,6 +112,7 @@ ActiveRecord::Schema.define(version: 20181001042130) do
 
   add_foreign_key "answers", "accounts"
   add_foreign_key "forms", "accounts"
+  add_foreign_key "points", "customers"
   add_foreign_key "questions", "accounts"
   add_foreign_key "submissions", "accounts"
   add_foreign_key "users", "accounts"
