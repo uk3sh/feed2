@@ -1,0 +1,10 @@
+<% @form.questions.each do |f| %>
+  <%= f.question_text %>
+  <br>
+  <%= f.answers.where(answer_text: "5").size %>
+  <%= f.answers.where(answer_text: "4").size %>
+  <%= f.answers.where(answer_text: "3").size %>
+  <%= f.answers.where(answer_text: "3").size %>
+  <%= f.answers.where(answer_text: "1").size %>
+  <br>
+<% end %>

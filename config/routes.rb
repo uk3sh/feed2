@@ -21,7 +21,7 @@ Rails.application.routes.draw do
     resources :questions
     resources :submissions
   end
-  
+  get '/forms/:id/report' => "forms#report", :as => :report
   get '/:slug' => "submissions#new"
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html

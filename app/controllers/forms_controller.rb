@@ -4,9 +4,9 @@ class FormsController < ApplicationController
   require 'net/https'
   require 'rqrcode'
 
-  skip_after_action :verify_policy_scoped, only: [:new, :create, :sms, :import, :generate_qr, :email, :bulk_email]
+  skip_after_action :verify_policy_scoped, only: [:new, :create, :sms, :import, :generate_qr, :email, :bulk_email, :report]
   before_action :authenticate_user!
-  before_action :set_form, only: [:show, :edit, :update, :destroy]
+  before_action :set_form, only: [:show, :edit, :update, :destroy, :report]
 
   # GET /forms
   # GET /forms.json
@@ -138,7 +138,12 @@ class FormsController < ApplicationController
       FormMailer.send_form_email(@email, @body, @form_url, @from_email).deliver
     end
     redirect_back(fallback_location: forms_path, notice: "Emails sent successfully!")
+  end 
+
+  def report
+    
   end
+  
   
 
   private
