@@ -14,7 +14,7 @@ class Submission < ApplicationRecord
   private
 
   def send_email    
-    email_id = User.find_by(account_id: self.account_id).email    
+    email_id = User.find_by(account_id: self.account_id, role: "admin").email  
     SubmissionMailer.submission_notification(email_id).deliver
   end
 
