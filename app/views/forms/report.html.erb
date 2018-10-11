@@ -1,10 +1,17 @@
-<% @form.questions.each do |f| %>
-  <%= f.question_text %>
-  <br>
-  <%= f.answers.where(answer_text: "5").size %>
-  <%= f.answers.where(answer_text: "4").size %>
-  <%= f.answers.where(answer_text: "3").size %>
-  <%= f.answers.where(answer_text: "3").size %>
-  <%= f.answers.where(answer_text: "1").size %>
-  <br>
-<% end %>
+<div class="row report-row">
+  <div class="col">
+    <% @form.questions.each do |f| %>
+      <% if f.question_type == 'Text' %>
+        <%= f.question_text %>
+        <br>
+        Report not available for text questions.
+        <% else %>
+        <%= f.question_text %>
+        <%= pie_chart f.answers.group(:answer_text).order('count_id asc').count('id'), library: { pieSliceText: 'value', 
+        backgroundColor: "#f5f5f5", is3D: 'true', chartArea: {left:0, width:'50%'}}, donut: true %>  
+      <% end %>
+    <% end %>
+  </div>
+</div>
+
+

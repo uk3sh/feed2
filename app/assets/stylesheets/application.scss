@@ -72,9 +72,7 @@ html, body {
 }
 
 body {
-  display: flex;
-  flex-direction: column;
-  height: 100vh;
+  
 }
 
 body{
@@ -248,3 +246,7 @@ body{
     overflow: hidden; }
 
 /* Pagination CSS -END */
+
+.report-row{
+  margin-top: 1rem;
+}
